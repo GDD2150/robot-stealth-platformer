@@ -21,7 +21,13 @@ public class Detected : MonoBehaviour
         // disable player movement
         GameObject.Find("Player").GetComponent<PlayerMovement>().moveSpeed = 0;
 
-        yield return new WaitForSeconds(3f);
+        // added small delay for dramatic effect
+        yield return new WaitForSeconds(0.15f);
+        transform.parent.GetComponent<PatrolBot>().patrolSpeed = 0;
+
+        // getting caught special effects should go here
+
+        yield return new WaitForSeconds(2.35f);
         SceneManager.LoadScene(PlayerPrefs.GetString("CurrentScene"));
     }
 }
